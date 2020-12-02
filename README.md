@@ -43,3 +43,10 @@ bert-base-chinese-pytorch_model.bin -> pytorch_model.bin
 4. Download fine-tuned model and put it in __storm_health__
 https://drive.google.com/file/d/1tvV4TV36HtoqZxUrSnB3EKx_VYFNvYUk/view?usp=sharing
 ```
+
+# Execute
+----
+```
+1. python3 flaskapp.py
+2. 127.0.0.1:5000 on browser
+```
