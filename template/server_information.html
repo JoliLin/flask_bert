@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team Big Data ver.Beta</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+body{
+	min-height: 75rem;
+	padding-top: 4.5rem;
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand" href="/">TeamBigData</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+</button>
+</nav>
+
+<div class="jumbotron text-center">
+<h1>Server Information</h1>
+</div>
+<div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Server-Information" data-id="Server-Information"><span></span></h1><hr>
+<h1 id="新增使用者" data-id="新增使用者"><span>新增使用者</span></h1><pre><code>sudo adduser ID
+</code></pre><h1 id="修改台灣時區" data-id="修改台灣時區"><span>修改台灣時區</span></h1><pre><code>sudo cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+</code></pre><h1 id="ubuntu-網路設定" data-id="ubuntu-網路設定"><span>ubuntu 網路設定</span></h1><ul>
+<li><span>Modified </span><strong><span>/etc/netplan/XX-cloud-init.yaml</span></strong></li>
+<li><span>The </span><strong><span>Network interface</span></strong><span> have to modified by youself.</span></li>
+<li><span>Taking </span><strong><span>csr_gamma</span></strong><span> for example</span></li>
+</ul><pre><code>network:
+    ethernets:
+        enp1s0f4u4:
+            dhcp4: true
+        ens3f0:
+            addresses:
+            - 140.109.161.143/24
+            gateway4: 140.109.161.1
+            nameservers:
+                addresses:
+                - 140.109.1.10
+                search:
+                - sinica.edu.tw
+    version: 2
+
+</code></pre><h1 id="關閉ubuntu休眠" data-id="關閉ubuntu休眠"><span>關閉ubuntu休眠</span></h1><pre><code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+</code></pre><h1 id="修改runlevel" data-id="修改runlevel"><span>修改runlevel</span></h1><ul>
+<li><span>check runlevel</span></li>
+<li><span>5: GUI, 3: console</span></li>
+</ul><pre><code>runlevel
+</code></pre><ul>
+<li><span>change runlevel</span></li>
+</ul><pre><code>init 3
+</code></pre><h1 id="安裝-chrome" data-id="安裝-chrome"><span>安裝 chrome</span></h1><ul>
+<li><span>Download stable version for chrome</span></li>
+</ul><pre><code>wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</code></pre><ul>
+<li><span>Install</span></li>
+</ul><pre><code>sudo dpkg -i google-chrome-stable_current_amd64.deb
+</code></pre><ul>
+<li><span>Check the verion</span></li>
+</ul><pre><code>google-chrome --verion
+</code></pre><ul>
+<li><span>Download the corresponding chrome version for crawler from official website</span></li>
+</ul><pre><code>https://chromedriver.chromium.org/
+</code></pre><h1 id="安裝-cuda-amp-cupy" data-id="安裝-cuda-amp-cupy"><span>安裝 cuda &amp; cupy</span></h1><ol>
+<li><span>安裝nvidia驅動</span></li>
+</ol><ul>
+<li><span>Add third party library for nvidia</span></li>
+</ul><pre><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+sudo apt upgrade
+</code></pre><ul>
+<li><span>install driver tool</span></li>
+</ul><pre><code>sudo apt install ubuntu-drivers-common
+</code></pre><ul>
+<li><span>check the version of drivers</span></li>
+</ul><pre><code>ubuntu-drivers devices
+</code></pre><ul>
+<li><span>install the recommended version</span></li>
+</ul><pre><code>sudo apt install nvidia-driver-XXX
+</code></pre><ol start="2">
+<li><span>安裝cuda</span></li>
+</ol><ul>
+<li><span>Download cuda from official website</span></li>
+</ul><pre><code>https://developer.nvidia.com/cuda-toolkit-archive
+</code></pre><ul>
+<li><span>Reboot</span></li>
+<li><span>Check it is installed or not</span></li>
+</ul><pre><code>nvidia-smi
+</code></pre><ol start="3">
+<li><span>安裝cupy</span></li>
+</ol><ul>
+<li><span>Notice: it takes a 20~30min</span></li>
+</ul><pre><code>sudo pip3 install cupy
+</code></pre><ol start="4">
+<li><span>You can start to use GPU !</span></li>
+</ol><h1 id="sever上掛載ftp" data-id="sever上掛載ftp"><span>sever上掛載ftp</span></h1><ul>
+<li><span>Mount</span></li>
+</ul><pre><code>curlftpfs -o user=ID ftp://IP_Address Target_Dir
+</code></pre><ul>
+<li><span>Unmount</span></li>
+</ul><pre><code>fusermount -u Target_Dir
+</code></pre><h1 id="Linux套件" data-id="Linux套件"><span>Linux套件</span></h1><ul>
+<li><span>Using </span><strong><span>sudo apt-get install</span></strong></li>
+</ul><pre><code>fish
+jq
+stow
+tldr
+ripgrep
+curlftpfs
+</code></pre><ul>
+<li><span>bat</span></li>
+</ul><pre><code>https://github.com/sharkdp/bat
+</code></pre><ul>
+<li><span>neovim</span></li>
+</ul><pre><code>sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install -y neovim
+</code></pre><h1 id="python套件" data-id="python套件"><span>python套件</span></h1><ul>
+<li><span>Using </span><strong><span>sudo pip3 install</span></strong></li>
+</ul><pre><code>nltk
+scipy
+sklearn
+gensim
+scrapy
+selenium
+transformers
+</code></pre><ul>
+<li><span>pytorch</span></li>
+</ul><pre><code>https://pytorch.org/
+</code></pre><ul>
+<li><span>ckip</span></li>
+</ul><pre><code>https://github.com/ckiplab/ckiptagger
+</code></pre></div>
+
+</body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team Big Data ver.Beta</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+body{
+	min-height: 75rem;
+	padding-top: 4.5rem;
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand" href="/">TeamBigData</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+</button>
+</nav>
+
+<div class="jumbotron text-center">
+<h1>Prototype</h1>
+<p>This is a prototype of deep learning model which is to detect a corpus is politcal or not.</p>
+<p>The model is fine-tuned with BERT by using about 30000 Traditional Chinese news.</p>
+<p><b>Notice: It's may take a few seconds.</b></p>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class='col-8'>
+	<form method='POST'>
+	<textarea name="input", rows='10', cols='80'>{{text}}</textarea>
+	<br>
+	<input class="btn btn-outline-primary" type='submit' value='I am a button'>
+	</form>
+  </div>
+  <div class="alert alert-success" role="alert">
+	<h3 class="alert-heading">To-do list</h3>
+	<p>Visualization</p>
+	<hr>
+	<p>Attention map</p>
+	<hr>
+	<p>Filter website & blank </p>
+	<hr>
+	<p>Debug</p>
+  </div>
+ </div>
+ <div class="card">
+	<div class="card-header">Result</div>
+	<div class="card-body">{{word | safe}}</div>
+  </div>
+
+</div>
+
+</body>
