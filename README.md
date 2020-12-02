@@ -27,3 +27,19 @@ flaskapp_demo<br>
 ---server_information.html<br>
 -storm_prototype.py<br>
 -wsgi.py<br>
+
+# Setting
+----
+```
+1. git clone
+2. Download these three files for using offline BERT and put them in **bert-base-chinese** 
+wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-chinese-vocab.txt
+wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-chinese-config.json
+wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-chinese-pytorch_model.bin
+3. Rename
+bert-base-chinese-vocab.txt -> vocab.txt
+bert-base-chinese-config.json -> bert_config.json
+bert-base-chinese-pytorch_model.bin -> pytorch_model.bin
+4. Download fine-tuned model and put it in **__storm_health__**
+https://drive.google.com/file/d/1tvV4TV36HtoqZxUrSnB3EKx_VYFNvYUk/view?usp=sharing
+```
