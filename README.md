@@ -2,7 +2,7 @@
 ----
 Using flask to demo a fine-tuned BERT model
 
-# Required
+# Requirement
 ----
 + flask
 + numpy
@@ -13,17 +13,17 @@ Using flask to demo a fine-tuned BERT model
 
 # Structure
 ----
-flaskapp_dem0
--__storm_health__
----model_0.pt
--bert-base-chinese
----bert_config.json
----pytorch_model.bin
----vocab.txt
--pipeline
--template
----index.html
----prototype.html
----server_information.html
--storm_prototype.py
--wsgi.py
+flaskapp_demo<br>
+-__storm_health__<br>
+---model_0.pt<br>
+-bert-base-chinese<br>
+---bert_config.json<br>
+---pytorch_model.bin<br>
+---vocab.txt<br>
+-pipeline<br>
+-template<br>
+---index.html<br>
+---prototype.html<br>
+---server_information.html<br>
+-storm_prototype.py<br>
+-wsgi.py<br>
